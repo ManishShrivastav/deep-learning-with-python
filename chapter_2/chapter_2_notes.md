@@ -92,6 +92,22 @@
 
 ## Manipulating tensors in Numpy
 
+- Tensor Slicing: Selecting specific elements in a tensor
+    - The first axis (axis 0) in all data tensors will be the *sample axis*.
+        - In the MNIST example "samples" are images of digits.
+    - The entire dataset is not typically processed all at once, but instead in batches.
+    - Batch Axis (batch dimension): the first axis when considering a batch tensor.
+
+## Real-world examples of tensor data
+
+1. Vector data - Rank-2 tensors of shape (samples, features) where each sample is a vector of numerical attributes ("features").
+
+2. Timeseries data or sequence data- Rank-3 Tensor of shape (samples, timesteps, features) where each sample is a sequence (of length timesteps) of feature vectors.
+
+3. Images- Rank-4 tensors of shape (samples, height, width, channels) where each sample is a 2D grid of pixels and each pixel is represented by a vector of values "channels".
+
+4. Videos - Rank-5 tensors of (samples, frames, height, width, channels) where each sample is a sequence of length frames of images.
+
 
 
 
