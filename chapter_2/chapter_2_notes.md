@@ -23,4 +23,77 @@
 
 ## Data representations for neural networks
 
+- Tesnor: A container for numbers. Machine learning systems use tensors as their basic data structure.
+    - Dimensions (aka axis): Display the number of axes a tensor has by calling the `ndim` attribute.
+
+    1. Scalars (rank - 0 tensors): A tensor that only contains one number is called a *scalaar* (scalar tensor, rank-0 tensor, or 0D tensor).
+        - In Numpy: `float32` or `float64` is a scalar tensor (or scalar array).
+        - `ndim` == 0.
+
+        ```python
+            import numpy as np
+            x = np.array(12)
+            x
+            array(12)
+            x.ndim
+            0
+        ```
+    2. Vectors (rank-1 tensors): An array of numbers is called a vector (rank-1 tensor, 1D tensor).
+        - Exactly 1 axis
+        ```python
+        x = np.array([12, 3, 6, 14, 7])
+        x
+        array([12, 3, 6, 14, 7])
+        x.ndim
+        1
+        ```
+        - This vector has 5 entries os it is a *5-dimensional vector* NOT A 5D TENSOR!
+        - A 5D vector has only one axis and has five dimensions along its axis, whereas a 5D tensor has five axes (and may have any number of dimensions along each axis)
+        - Dimensionality: Dimensionality can denote either the number of entries along a specific axis (as in the case of our 5D vector) or the number of axes in a tensor (such as a 5D tensor).
+    3. Matrices (rank-2 tensors): An aray of vectors is a matrix (rank-2 tensor or 2D tensor).
+        - A matrix has two axes (often referred to as rows and columns)
+    ```python
+        x = np.array([[5, 78, 2, 34, 0],
+    ...               [6, 79, 3, 35, 1],
+    ...               [7, 80, 4, 36, 2]])
+        x.ndim
+        2
+    ```
+    4. Rank-3 and higher-rank tensors
+        - Rank-3 Tensor: If you pack such matrices in a new array, you obtain a rank-3 tensor (or 3D tensor), which you can visually interpret as a cube of numbers.
+        ```python
+        x = np.array([
+            [
+                [5, 78, 2, 34, 0],
+                [6, 79, 3, 35, 1],
+                [7, 80, 4, 36, 2]
+            ],
+            [
+                [5, 78, 2, 34, 0],
+                [6, 79, 3, 35, 1],
+                [7, 80, 4, 36, 2]
+            ],
+            [
+                [5, 78, 2, 34, 0],
+                [6, 79, 3, 35, 1],
+                [7, 80, 4, 36, 2]
+            ]
+        ])
+
+        x.ndim
+        3
+        ```
+        - Higher-rank Tensors: By packing rank-3 tensors in an array, you can create a rank-4 tensor, and so on.
+
+- Key attributes of tensors:
+    1. Number of axes (rank): For instance, a rank-3 tensor has three axes, and a matrix has two axes. This is also called the tensor’s `ndim` in Python libraries such as NumPy, JAX, TensorFlow, and PyTorch.
+    2. Shape: This is a tuple of integers that describes how many dimensions the tensor has along each axis. For instance, the previous matrix example has shape `(3, 5)`, and the rank-3 tensor example has shape `(3, 3, 5)`. A vector has a shape with a single element, such as `(5,)`, whereas a scalar has an empty shape, `()`.
+    3. Data type (`dtype`): This is the type of the data contained in the tensor; for instance, a tensor’s type could be `float16`, `float32`, `float64`, `uint8`, `bool`, and so on. In TensorFlow, you are also likely to come across `string` tensors.
+
+## Manipulating tensors in Numpy
+
+
+
+
+    
 
