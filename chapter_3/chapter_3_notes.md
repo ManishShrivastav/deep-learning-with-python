@@ -116,7 +116,7 @@
             return tf.nn.relu(tf.matmul(inputs, W) + b)
     ```
 
-## Gradients in TensorFlow: A second look at the GradientTape API
+### Gradients in TensorFlow: A second look at the GradientTape API
 
 ```python
     input_var = tf.Variable(initial_value=3.0)
@@ -144,3 +144,22 @@
     # We use the outer tape to compute the gradient of the gradient from the inner tape. Naturally, the answer is 4.9 * 2 = 9.8.
     acceleration = outer_tape.gradient(speed, time)
 ```
+
+### Making TensorFlow functions fast using compilation
+
+- Decorate your functions with `@tf.function` to have the function be compiled upon the first instance, and all following calls use the compiled version.
+    - `'Graph mode'` is the default mode for compilation of functions using the `@tf.function` decorator.
+
+    ```python
+        @tf.function
+        def dense(inputs, W, b):
+            return tf.nn.relu(tf.matmul(inputs, W) + b)
+    ```
+    - `jit_compile=True` as a parameter to compile using XLA (Accelerated Linear Algebra), a high-pereformance compiler for ML
+
+    ```python
+        @tf.function(jit_compile=True)
+        def dense(inputs, W, b):
+            return tf.nn.relu(tf.matmul(inputs, W) + b)
+    ```
+    **NOTE** It is often the case that compiling a function with XLA will make it run faster than graph mode — though it takes more time to execute the function the first time, since the compiler has more work to do.
