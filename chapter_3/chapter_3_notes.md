@@ -163,3 +163,7 @@
             return tf.nn.relu(tf.matmul(inputs, W) + b)
     ```
     **NOTE** It is often the case that compiling a function with XLA will make it run faster than graph mode — though it takes more time to execute the function the first time, since the compiler has more work to do.
+
+### An end-to-end example: A linear classifier in pure TensorFlow
+- see the notebook
+    [Pure Linear Classifier in TensorFlow](./pure_linear_classifier_in_tf.ipynb)
