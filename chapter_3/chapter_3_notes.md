@@ -167,3 +167,40 @@
 ### An end-to-end example: A linear classifier in pure TensorFlow
 - see the notebook
     [Pure Linear Classifier in TensorFlow](./pure_linear_classifier_in_tf.ipynb)
+
+## Introduction to PyTorch
+
+### Tensors and Parameters in PyTorch
+
+- Constant Tensors:
+
+```python
+    >>> import torch
+    >>> # Unlike in other frameworks, the shape argument is named "size"
+    >>> # rather than "shape."
+    >>> torch.ones(size=(2, 1))
+    tensor([[1.], [1.]])
+    >>> torch.zeros(size=(2, 1))
+    tensor([[0.], [0.]])
+    >>> # Unlike in other frameworks, you cannot pass dtype="float32" as a
+    >>> # string. The dtype argument must be a torch dtype instance.
+    >>> torch.tensor([1, 2, 3], dtype=torch.float32)
+    tensor([1., 2., 3.])
+```
+
+## Introduction to JAX
+
+
+### Tensors in JAX
+
+```python
+>>> from jax import numpy as jnp
+>>> jnp.ones(shape=(2, 1))
+Array([[1.],
+       [1.]], dtype=float32)
+>>> jnp.zeros(shape=(2, 1))
+Array([[0.],
+       [0.]], dtype=float32)
+>>> jnp.array([1, 2, 3], dtype="float32")
+Array([1., 2., 3.], dtype=float32)
+```
